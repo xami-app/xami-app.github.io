@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router";
+import { Route, HashRouter as Router, Routes } from "react-router";
 import { getStorageValue } from "../storage/StorageProvider";
 import Sidebar from "./custom/Sidebar/Sidebar";
 import Navbar from "./custom/Navbar/Navbar";

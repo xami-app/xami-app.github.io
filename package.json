@@ -2,6 +2,7 @@
   "name": "chatbot-webinterface",
   "private": true,
   "version": "0.0.0",
+  "homepage": "./",
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -13,7 +14,6 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
     "@uiw/react-json-view": "^2.0.0-alpha.30",
-    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "minisearch": "^7.1.2",
     "prismjs": "^1.30.0",
