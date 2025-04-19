@@ -74,7 +74,7 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
             {topResults.map((res, idx) => (
               <li key={idx}>
                 <a
-                  href={`/docs/${res.file}`}
+                  href={`/view/${res.file}`}
                   className="block px-4 py-2 hover:bg-zinc-800 text-sm text-zinc-100"
                 >
                   <div className="font-medium">{res.title}</div>

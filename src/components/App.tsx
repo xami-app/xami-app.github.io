@@ -20,7 +20,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
               
-                <Route path="/docs/*" element={<DocViewPage />} />
+                <Route path="/view/*" element={<DocViewPage />} />
 
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>

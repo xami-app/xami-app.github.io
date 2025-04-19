@@ -15,7 +15,7 @@ import Offcanvas from '../../lib/modals/Offcanvas';
 
 const DocViewPage: React.FC = () => {
   const { pathname } = useLocation();
-  const markdownPath = `/docs/${pathname.replace(/^\/docs\//, '')}.md`;
+  const markdownPath = `/docs/${pathname.replace(/^\/view\//, '')}.md`;
   const [showToC, setShowToC] = useState(false);
 
   const {
