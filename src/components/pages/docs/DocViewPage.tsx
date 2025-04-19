@@ -15,7 +15,7 @@ import Offcanvas from '../../lib/modals/Offcanvas';
 
 const DocViewPage: React.FC = () => {
   const { pathname } = useLocation();
-  const markdownPath = `/docs/${pathname.replace(/^\/view\//, '')}.md`;
+  const markdownPath = `/docs/${pathname.replace(/^\/docs\//, '')}.md`;
   const [showToC, setShowToC] = useState(false);
 
   const {
@@ -38,7 +38,7 @@ const DocViewPage: React.FC = () => {
         <div>
           Could not find documentation page.
           <br />
-          <span className="text-sm text-red-400">({fallbackPath})</span>
+          <span className="text-sm text-red-400">{fallbackPath}</span>
         </div>
       </InvalidParamsPage>
     );
@@ -60,7 +60,7 @@ const DocViewPage: React.FC = () => {
       </div>
 
       {/* Desktop Table of Contents */}
-      <aside className="hidden lg:block fixed top-12 right-4 w-60 max-h-[calc(100vh-100px)] overflow-y-auto">
+      <aside className="hidden lg:block fixed top-12 right-4 w-60 max-h-[calc(100vh-60px)] overflow-y-auto">
         <DocSidebar mode='DESKTOP' headings={headings} />
       </aside>
 

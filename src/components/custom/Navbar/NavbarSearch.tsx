@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import MiniSearch from "minisearch";
 import SearchBar from "../../lib/form/SearchBar";
+import { useNavigate } from "react-router";
 
 interface SearchResult {
   id: number;
@@ -14,10 +15,14 @@ interface NavbarSearchProps {
 }
 
 export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) => {
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [index, setIndex] = useState<MiniSearch | null>(null);
+  const [showResults, setShowResults] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -57,6 +62,20 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
     setResults(found);
   }, [search, index]);
 
+  // Handle click outside to close results
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setShowResults(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const topResults = results.slice(0, 5);
   const tooManyResults = results.length > 5;
 
@@ -64,17 +83,25 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
     <div className={`relative ${className}`} ref={containerRef}>
       <SearchBar
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setShowResults(true);
+        }}
+        onFocus={() => {
+          if (results.length > 0) setShowResults(true);
+        }}
+        inputRef={inputRef} 
         placeholder="Search the docs..."
       />
 
-      {search && topResults.length > 0 && (
+      {search && topResults.length > 0 && showResults && (
         <div className="absolute top-full mt-1 w-full z-50 bg-zinc-900 border border-zinc-700 shadow-lg rounded-md max-h-[300px] overflow-auto">
           <ul>
             {topResults.map((res, idx) => (
               <li key={idx}>
                 <a
-                  href={`/view/${res.file}`}
+                  onClick={() => navigate(`/docs/${res.file.replace("\\", "/")}`)}
+                  href={`#/docs/${res.file.replace("\\", "/")}`}
                   className="block px-4 py-2 hover:bg-zinc-800 text-sm text-zinc-100"
                 >
                   <div className="font-medium">{res.title}</div>

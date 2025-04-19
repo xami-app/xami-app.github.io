@@ -1,7 +1,7 @@
 {
-  "name": "chatbot-webinterface",
+  "name": "xami-docs",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "./",
   "type": "module",
   "scripts": {
