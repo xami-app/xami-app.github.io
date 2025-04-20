@@ -5,6 +5,15 @@ const devDocConfig: ConfigDefinition = {
     title: "Developer",
     entries: [
         {
+            title: "Contributing",
+            children: [
+                {
+                    title: "Repositories",
+                    path: "contributing/repositories"
+                }
+            ]
+        },
+        {
             title: "Annotations",
             children: [
                 {

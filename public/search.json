@@ -402,6 +402,104 @@
     ]
   },
   {
+    "file": "dev\\contributing\\repositories",
+    "title": "xami Respositories",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "xami Respositories"
+      },
+      {
+        "type": "paragraph",
+        "value": "Looking for the source code? We got you! Here you can find all relevant xami GitHub repositories."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Main sources"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Application"
+      },
+      {
+        "type": "paragraph",
+        "value": "The main application source code can be found under"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/timonmdy/xami"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Core"
+      },
+      {
+        "type": "paragraph",
+        "value": "The xami-core repository contains shared resources between the main application and modules. It can be found under"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/timonmdy/xami-core"
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Modules"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Template"
+      },
+      {
+        "type": "paragraph",
+        "value": "The official module template, which can be used as a starting point to create your own module can be found under"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/timonmdy/xami-example-module"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Official modules"
+      },
+      {
+        "type": "paragraph",
+        "value": "Here is a list of official xami modules:"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/timonmdy/does-not-exist-yet"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/timonmdy/nothing-here"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "User modules"
+      },
+      {
+        "type": "paragraph",
+        "value": "Here is a list of (some) featured xami modules made by other developers:"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/you/why-have-you-not-made-one-yet"
+      },
+      {
+        "type": "paragraph",
+        "value": "https://github.com/someone/submit-your-modules"
+      }
+    ]
+  },
+  {
     "file": "dev\\getting-started",
     "title": "Developer Documentation",
     "content": [

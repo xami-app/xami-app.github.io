@@ -82,6 +82,7 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
   return (
     <div className={`relative ${className}`} ref={containerRef}>
       <SearchBar
+        id="NAVBAR-SEARCH"
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
@@ -90,7 +91,7 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
         onFocus={() => {
           if (results.length > 0) setShowResults(true);
         }}
-        inputRef={inputRef} 
+        inputRef={inputRef}
         placeholder="Search the docs..."
       />
 
