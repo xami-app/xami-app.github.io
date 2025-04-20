@@ -1,12 +1,21 @@
 [
   {
-    "file": "admin\\setup",
-    "title": "Getting started",
+    "file": "admin\\getting-started",
+    "title": "Admin Documentation",
     "content": [
       {
         "type": "heading",
         "depth": 1,
-        "value": "Getting started"
+        "value": "Admin Documentation"
+      },
+      {
+        "type": "paragraph",
+        "value": "We're glad you're on board! In this section, you will find all kind of information related to running the thing."
+      },
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Getting Started"
       },
       {
         "type": "paragraph",
@@ -272,7 +281,7 @@
     ]
   },
   {
-    "file": "dev\\use-annotation",
+    "file": "dev\\annotations\\@customtag",
     "title": "@CustomTag",
     "content": [
       {
@@ -389,6 +398,262 @@
       {
         "type": "paragraph",
         "value": "The @CustomTag annotation is a flexible way to embed metadata into your Java code for use with various runtime tools and systems. Whether you're building a lightweight framework or extending an existing system, @CustomTag provides a clean and standardized method to tag and organize your logic."
+      }
+    ]
+  },
+  {
+    "file": "dev\\getting-started",
+    "title": "Developer Documentation",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Developer Documentation"
+      }
+    ]
+  },
+  {
+    "file": "getting-started",
+    "title": "Getting Started",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Getting Started"
+      },
+      {
+        "type": "paragraph",
+        "value": "Welcome to the documentation site! Below you will find instructions on how to get started with the software. The guide is divided into three main sections: User, Admin, and Developer. Select the section that best fits your role."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "USER"
+      },
+      {
+        "type": "paragraph",
+        "value": "As a user, the software is designed to be easy to use and intuitive. Follow these steps to get started:"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Installation"
+      },
+      {
+        "type": "paragraph",
+        "value": "Download the latest version from the release page."
+      },
+      {
+        "type": "paragraph",
+        "value": "Install the software following the provided instructions for your operating system (Windows, macOS, or Linux)."
+      },
+      {
+        "type": "paragraph",
+        "value": "Once installed, launch the application from your start menu or desktop."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Account Setup"
+      },
+      {
+        "type": "paragraph",
+        "value": "Open the application and sign up for an account using your email address."
+      },
+      {
+        "type": "paragraph",
+        "value": "After signing up, you’ll receive a confirmation email. Click the confirmation link to activate your account."
+      },
+      {
+        "type": "paragraph",
+        "value": "Log in using your credentials."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Basic Features"
+      },
+      {
+        "type": "paragraph",
+        "value": "Once logged in, you can start using the main features such as:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Viewing Dashboard: This is your starting point where you can see an overview of all activities."
+      },
+      {
+        "type": "paragraph",
+        "value": "Managing Profile: Go to your profile settings to update personal details and preferences."
+      },
+      {
+        "type": "paragraph",
+        "value": "Interacting with Content: Browse through available content and interact with it by commenting, liking, or sharing."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "ADMIN"
+      },
+      {
+        "type": "paragraph",
+        "value": "Admins have access to more advanced features to manage and monitor the system. Here’s how to get started:"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Admin Setup"
+      },
+      {
+        "type": "paragraph",
+        "value": "If you’ve been granted admin rights, log in using your admin credentials."
+      },
+      {
+        "type": "paragraph",
+        "value": "Ensure your admin account is activated via the confirmation email, if not done already."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Managing Users"
+      },
+      {
+        "type": "paragraph",
+        "value": "Go to the User Management section to add, remove, or modify user accounts."
+      },
+      {
+        "type": "paragraph",
+        "value": "You can assign roles, reset passwords, and approve or block user accounts as necessary."
+      },
+      {
+        "type": "paragraph",
+        "value": "Use the search functionality to easily locate specific users."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Configuring the System"
+      },
+      {
+        "type": "paragraph",
+        "value": "In the Settings section, you can configure global system settings such as:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Permissions: Control who can access certain features based on roles."
+      },
+      {
+        "type": "paragraph",
+        "value": "Notifications: Set up alerts and notifications for system events."
+      },
+      {
+        "type": "paragraph",
+        "value": "Content Moderation: Set up filters or approval processes for submitted content."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Monitoring Activities"
+      },
+      {
+        "type": "paragraph",
+        "value": "Use the Activity Logs to keep track of user actions, system events, and other important actions within the system."
+      },
+      {
+        "type": "paragraph",
+        "value": "Generate reports based on log data to analyze usage patterns."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "DEVELOPER"
+      },
+      {
+        "type": "paragraph",
+        "value": "Developers can extend, customize, and integrate with the software using our API and plugin system. Follow these steps to get started:"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Setting Up Development Environment"
+      },
+      {
+        "type": "paragraph",
+        "value": "Clone the repository from GitHub:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Install dependencies using npm install or yarn install (depending on your package manager)."
+      },
+      {
+        "type": "paragraph",
+        "value": "Ensure you have Node.js and the appropriate build tools installed for local development."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Exploring the Codebase"
+      },
+      {
+        "type": "paragraph",
+        "value": "The core application code is located in the src/ directory. Here you’ll find the main components, services, and utilities used by the software."
+      },
+      {
+        "type": "paragraph",
+        "value": "Review the README.md file in the src/ folder for specific developer instructions."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Extending the Application"
+      },
+      {
+        "type": "paragraph",
+        "value": "You can extend the software using plugins. Drop JAR files into the ./modules/ directory to add custom features."
+      },
+      {
+        "type": "paragraph",
+        "value": "Plugins can listen to events, add new API endpoints, or modify system behavior. For detailed instructions on creating plugins, refer to the Plugin Guide."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Using the API"
+      },
+      {
+        "type": "paragraph",
+        "value": "The API documentation provides detailed instructions on how to interact with the system programmatically."
+      },
+      {
+        "type": "paragraph",
+        "value": "You can access the API endpoints for user management, content interaction, and system monitoring."
+      },
+      {
+        "type": "paragraph",
+        "value": "Example API call to fetch user data:"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Running the Application Locally"
+      },
+      {
+        "type": "paragraph",
+        "value": "Use npm start or yarn start to run the application locally for testing and development."
+      },
+      {
+        "type": "paragraph",
+        "value": "Access the local version of the app via http://localhost:3000."
+      }
+    ]
+  },
+  {
+    "file": "user\\getting-started",
+    "title": "User Documentation",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "User Documentation"
       }
     ]
   },

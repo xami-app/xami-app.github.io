@@ -1,5 +1,8 @@
-# Getting started
+# Admin Documentation
 
+We're glad you're on board! In this section, you will find all kind of information related to running the thing.
+
+# Getting Started
 This guide will walk administrators through the setup process for configuring the media player interface. It covers everything from initial port configuration to advanced customizations. This document assumes a fresh installation of the system on a Linux-based server, but general principles apply across all platforms.
 
 ## Prerequisites

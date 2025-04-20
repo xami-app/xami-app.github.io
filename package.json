@@ -8,8 +8,7 @@
     "start": "vite",
     "generate:search": "node scripts/generateSearchIndex.js",
     "build": "npm run generate:search && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
