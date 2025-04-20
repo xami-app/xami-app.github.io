@@ -1,15 +1,15 @@
 // src/components/Sidebar/Sidebar.tsx
 import React, { useEffect, useState } from "react";
 import { BsChevronBarLeft, BsChevronBarRight } from "react-icons/bs";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import logo from "../../../assets/sidebar-icon.png";
-import { getStorageValue, setStorageValue } from "../../../storage/StorageProvider";
-import { SidebarItem } from "./SidebarItem";
-import { ConfigEntry } from "../../../types/Config.types";
-import userDocConfig from "../../../config/user.docs.config";
-import { SidebarDropdown } from "./SidebarDropdown";
 import adminDocConfig from "../../../config/Admin.docs.config";
 import devDocConfig from "../../../config/Developer.docs.config";
+import userDocConfig from "../../../config/User.docs.config";
+import { getStorageValue, setStorageValue } from "../../../storage/StorageProvider";
+import { ConfigEntry } from "../../../types/Config.types";
+import { SidebarDropdown } from "./SidebarDropdown";
+import { SidebarItem } from "./SidebarItem";
 
 interface SidebarProps {
     handleSidebarLock: (expanded: boolean) => void;
@@ -17,7 +17,6 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
     const navigate = useNavigate();
-    const location = useLocation();
     const getStorageLock = (): boolean => !!getStorageValue("sidebarLocked");
     const setStorageLock = (lock: boolean) => setStorageValue("sidebarLocked", lock);
 
@@ -36,7 +35,6 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
         const currentPath = basePath + (entry.path || '');
         const hasPath = !!entry.path;
         const hasChildren = entry.children && entry.children.length > 0;
-        const isActive = hasPath && location.pathname === currentPath;
 
         if (hasChildren) {
             return (
@@ -44,10 +42,8 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                     key={entry.title + depth}
                     title={entry.title}
                     depth={depth}
-                    navigable={hasPath}
-                    onNavigate={hasPath ? () => navigate(currentPath) : undefined}
+                    path={entry.path && currentPath}
                     expanded={isSidebarExpanded}
-                    active={isActive}
                 >
                     {entry.children?.map((child) =>
                         renderEntry(basePath, child, depth + 1)
@@ -61,8 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                 <SidebarItem
                     key={entry.title + depth}
                     title={entry.title}
-                    active={isActive}
-                    onClick={() => navigate(currentPath)}
+                    path={currentPath}
                     expanded={isSidebarExpanded}
                     depth={depth}
                 />
@@ -109,24 +104,20 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                 <ul className="space-y-0.5">
                     <SidebarItem
                         title={"Home"}
-                        active={location.pathname == "/"}
-                        onClick={() => navigate("/")}
+                        path={"/"}
                         expanded={isSidebarExpanded}
                     />
                     <SidebarItem
                         title={"Getting started"}
-                        active={location.pathname == "/docs/getting-started"}
-                        onClick={() => navigate("/docs/getting-started")}
+                        path={"/docs/getting-started"}
                         expanded={isSidebarExpanded}
                     />  
                     <SidebarDropdown
                         key={"User"}
                         title={"User"}
                         depth={0}
-                        navigable={true}
-                        onNavigate={() => navigate("/docs/user/getting-started")}
+                        path={"/docs/user/getting-started"}
                         expanded={isSidebarExpanded}
-                        active={location.pathname == "/docs/user/getting-started"}
                     >
                         {userDocConfig.entries.map((entry) =>
                             renderEntry(userDocConfig.basePath, entry, 1)
@@ -136,10 +127,8 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                         key={"Admin"}
                         title={"Admin"}
                         depth={0}
-                        navigable={true}
-                        onNavigate={() => navigate("/docs/admin/getting-started")}
+                        path={"/docs/admin/getting-started"}
                         expanded={isSidebarExpanded}
-                        active={location.pathname == "/docs/admin/getting-started"}
                     >
                         {adminDocConfig.entries.map((entry) =>
                             renderEntry(adminDocConfig.basePath, entry, 1)
@@ -149,10 +138,8 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                         key={"Developer"}
                         title={"Developer"}
                         depth={0}
-                        navigable={true}
-                        onNavigate={() => navigate("/docs/dev/getting-started")}
+                        path={"/docs/dev/getting-started"}
                         expanded={isSidebarExpanded}
-                        active={location.pathname == "/docs/dev/getting-started"}
                     >
                         {devDocConfig.entries.map((entry) =>
                             renderEntry(devDocConfig.basePath, entry, 1)

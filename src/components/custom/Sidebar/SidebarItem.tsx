@@ -1,26 +1,29 @@
 // src/components/Sidebar/SidebarItem.tsx
 import React from "react";
+import { useLocation, useNavigate } from "react-router";
 
 interface SidebarItemProps {
     title: string;
-    active: boolean;
-    onClick: () => void;
+    path: string;
     expanded: boolean;
     depth?: number;
 }
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({
     title,
-    active,
-    onClick,
+    path,
     expanded,
     depth = 0,
 }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const paddingLeft = `${(depth + 1) * 0.75}rem`;
+    const isActive = location.pathname === path;
 
     return (
         <li
-            onClick={onClick}
+            onClick={() => navigate(path)}
             className={`
                 flex items-center justify-between my-0.5 py-1 rounded-md cursor-pointer transition-colors
                 group relative 
@@ -34,7 +37,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = ({
                 `}
             >
                 {expanded && (
-                    <span className={`text-sm truncate ${active ? 'text-indigo-300' : 'text-gray-300 group-hover:text-white'}`}>
+                    <span className={`text-sm truncate ${isActive ? 'text-indigo-300' : 'text-gray-300 group-hover:text-white'}`}>
                         {title}
                     </span>
                 )}

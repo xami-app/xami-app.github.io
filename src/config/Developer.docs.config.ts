@@ -17,8 +17,8 @@ const devDocConfig: ConfigDefinition = {
             title: "Annotations",
             children: [
                 {
-                    title: "@CustomTag",
-                    path: "annotations/@customtag"
+                    title: "@Authenticated",
+                    path: "annotations/@authenticated"
                 }
             ]
         }

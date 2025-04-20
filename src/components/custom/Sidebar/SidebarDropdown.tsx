@@ -1,49 +1,59 @@
-// src/components/Sidebar/SidebarDropdown.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router";
+import { hasActiveChild } from "../../../utils/Document.utils";
 
 interface SidebarDropdownProps {
     title: string;
     depth: number;
-    navigable?: boolean;
-    onNavigate?: () => void;
+    path?: string;
     children: React.ReactNode;
     expanded: boolean;
-    active: boolean;
 }
 
 export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
     title,
     depth,
-    navigable,
-    onNavigate,
+    path,
     children,
     expanded,
-    active,
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const isActive = location.pathname === path;
+    const childIsActive = hasActiveChild(children, location.pathname);
+    const [isOpen, setIsOpen] = useState(isActive || childIsActive);
+
+
+    useEffect(() => {
+        if (!isOpen) {
+            setIsOpen(isActive || childIsActive);
+        }
+    }, [isActive, childIsActive]);    
 
     const handleToggle = (e: React.MouseEvent) => {
         e.stopPropagation();
         setIsOpen((prev) => !prev);
     };
 
+    const navigable = path != null;
+
     const handleNavigateOrToggle = (e: React.MouseEvent) => {
-        if (navigable && onNavigate) {
+        if (path) {
             e.stopPropagation();
-            onNavigate();
+            navigate(path);
         } else if (children) {
-             setIsOpen((prev) => !prev);
+            setIsOpen((prev) => !prev);
         }
     };
 
-     const handleLiClick = (e: React.MouseEvent) => {
-         if ((e.target as Element).closest('button')) {
-             return;
-         }
-         handleNavigateOrToggle(e);
-     };
-
+    const handleLiClick = (e: React.MouseEvent) => {
+        if ((e.target as Element).closest('button')) {
+            return;
+        }
+        handleNavigateOrToggle(e);
+    };
 
     const paddingLeft = `${(depth + 1) * 0.75}rem`;
 
@@ -54,7 +64,7 @@ export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
                     flex items-center justify-between my-0.5 py-0.5 rounded-md cursor-pointer transition-colors
                     group relative
                     hover:bg-zinc-700/50
-                    ${active
+                    ${isActive
                         ? 'bg-zinc-700 text-white rounded px-2 py-0.5'
                         : 'text-gray-300 px-2 py-0.5'
                     }
@@ -72,10 +82,10 @@ export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
                         <span
                             className={`
                                 text-sm truncate
-                                ${active && navigable ? 'text-white' : 'text-gray-300 group-hover:text-white'}
+                                ${isActive && navigable ? 'text-white' : 'text-gray-300 group-hover:text-white'}
                                 ${navigable ? ' underline-offset-2 cursor-pointer' : ''}
                             `}
-                            onClick={navigable && onNavigate ? (e) => { e.stopPropagation(); onNavigate(); } : undefined}
+                            onClick={navigable && path ? (e) => { e.stopPropagation(); navigate(path); } : undefined}
                         >
                             {title}
                         </span>

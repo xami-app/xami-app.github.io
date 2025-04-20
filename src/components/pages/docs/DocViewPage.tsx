@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router';
@@ -12,9 +12,10 @@ import DocMarkdownView from '../../custom/Docs/DocMarkdownView';
 import DocSidebar from '../../custom/Docs/DocSidebar';
 import InvalidParamsPage from '../lib/InvalidParamsPage';
 import Offcanvas from '../../lib/modals/Offcanvas';
+import { scrollToElementWithOffset } from '../../../utils/Document.utils';
 
 const DocViewPage: React.FC = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const markdownPath = `/docs/${pathname.replace(/^\/docs\//, '')}.md`;
   const [showToC, setShowToC] = useState(false);
 
@@ -26,6 +27,13 @@ const DocViewPage: React.FC = () => {
   });
 
   const headings = useHeadings(markdown ?? '');
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      setTimeout(() => scrollToElementWithOffset(id, 100), 100);
+    }
+  }, [hash, markdown]);
 
   if (isLoading) {
     return <div className="text-gray-400 p-6">📄 Loading document...</div>;
@@ -60,7 +68,7 @@ const DocViewPage: React.FC = () => {
       </div>
 
       {/* Desktop Table of Contents */}
-      <aside className="hidden lg:block fixed top-12 right-4 w-60 max-h-[calc(100vh-60px)] overflow-y-auto">
+      <aside className="hidden lg:block fixed right-4 w-60 mt-2 max-h-[calc(100vh-60px)] overflow-y-auto">
         <DocSidebar mode='DESKTOP' headings={headings} />
       </aside>
 

@@ -1,4 +1,4 @@
-import NavbarSearch from "./NavbarSearch";
+import { NavbarSearch } from "./NavbarSearch";
 
 interface NavbarProps {
     className?: string;
@@ -6,7 +6,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
     return (
-        <div className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-3 bg-transparent backdrop-blur-md shadow-md z-10 ${className}`}>
+        <div className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-3 bg-transparent backdrop-blur shadow-md z-10 ${className}`}>
             <div className="flex-grow flex">
                 <NavbarSearch />
             </div>

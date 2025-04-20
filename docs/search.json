@@ -10,288 +10,22 @@
       },
       {
         "type": "paragraph",
-        "value": "We're glad you're on board! In this section, you will find all kind of information related to running the thing."
-      },
-      {
-        "type": "heading",
-        "depth": 1,
-        "value": "Getting Started"
-      },
-      {
-        "type": "paragraph",
-        "value": "This guide will walk administrators through the setup process for configuring the media player interface. It covers everything from initial port configuration to advanced customizations. This document assumes a fresh installation of the system on a Linux-based server, but general principles apply across all platforms."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Prerequisites"
-      },
-      {
-        "type": "paragraph",
-        "value": "Node.js v18+ or Docker (optional)"
-      },
-      {
-        "type": "paragraph",
-        "value": "Access to the server terminal"
-      },
-      {
-        "type": "paragraph",
-        "value": "Admin privileges"
-      },
-      {
-        "type": "paragraph",
-        "value": "Open network port for frontend/backend communication"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "1. Install Core Dependencies"
-      },
-      {
-        "type": "paragraph",
-        "value": "Install required global dependencies:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "2. Clone the Media Player Repository"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "3. Set Environment Variables"
-      },
-      {
-        "type": "paragraph",
-        "value": "Copy and modify the example config:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Example environment configuration:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "4. Start the Interface"
-      },
-      {
-        "type": "heading",
-        "depth": 3,
-        "value": "Using Node.js:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Or run it as a background process:"
-      },
-      {
-        "type": "heading",
-        "depth": 3,
-        "value": "Using Docker:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "5. Open Required Ports"
-      },
-      {
-        "type": "paragraph",
-        "value": "Ensure that your firewall is not blocking the interface port (default: 3080). For UFW:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "6. Admin Dashboard Access"
-      },
-      {
-        "type": "paragraph",
-        "value": "Navigate to http://<your-server-ip>:3080/admin"
-      },
-      {
-        "type": "paragraph",
-        "value": "Use the initial credentials:"
-      },
-      {
-        "type": "paragraph",
-        "value": "You will be prompted to change your password upon first login."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "7. Configure Media Library"
-      },
-      {
-        "type": "paragraph",
-        "value": "Navigate to Settings > Library"
-      },
-      {
-        "type": "paragraph",
-        "value": "Set the root media path (must match MEDIA_LIBRARY_PATH from the .env file)"
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable periodic scans to auto-detect new content"
-      },
-      {
-        "type": "paragraph",
-        "value": "Configure ignored extensions and folders"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "8. Set Up User Roles"
-      },
-      {
-        "type": "paragraph",
-        "value": "User roles:"
-      },
-      {
-        "type": "paragraph",
-        "value": " – full access to all controls and system settings"
-      },
-      {
-        "type": "paragraph",
-        "value": " – can curate content and moderate streams"
-      },
-      {
-        "type": "paragraph",
-        "value": " – standard viewer access"
-      },
-      {
-        "type": "paragraph",
-        "value": "You can assign roles in the Admin Panel under \"Users\"."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "9. Enabling External Access"
-      },
-      {
-        "type": "paragraph",
-        "value": "To allow remote access:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable ENABLE_REMOTE_CONTROL=true in your .env"
-      },
-      {
-        "type": "paragraph",
-        "value": "Set up a reverse proxy using NGINX for secure HTTPS"
-      },
-      {
-        "type": "paragraph",
-        "value": "Example NGINX config:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "10. Enable Fun Features (Optional)"
-      },
-      {
-        "type": "paragraph",
-        "value": "These features are hidden behind feature flags:"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Automatically generates playlists based on mood analysis"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable with VOICE_CONTROL_ENABLED=true"
-      },
-      {
-        "type": "paragraph",
-        "value": "Requires microphone and local speech-to-text service"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Easter eggs and interactive features during audio playback"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "11. Logs and Monitoring"
-      },
-      {
-        "type": "paragraph",
-        "value": "Logs are stored in /var/log/media-player/."
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable verbose logging in .env:"
-      },
-      {
-        "type": "paragraph",
-        "value": "View logs via PM2:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "12. Backups"
-      },
-      {
-        "type": "paragraph",
-        "value": "Regularly back up the following:"
-      },
-      {
-        "type": "paragraph",
-        "value": ".env file"
-      },
-      {
-        "type": "paragraph",
-        "value": "Media metadata database (usually ./data/meta.db)"
-      },
-      {
-        "type": "paragraph",
-        "value": "User profiles and custom playlists"
-      },
-      {
-        "type": "paragraph",
-        "value": "Use cron jobs to automate backups."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "13. Updating the Interface"
-      },
-      {
-        "type": "paragraph",
-        "value": "To update the interface:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Conclusion"
-      },
-      {
-        "type": "paragraph",
-        "value": "Your media player interface should now be fully configured and accessible. Be sure to review security settings and user permissions regularly. Enjoy your new setup!"
+        "value": "In the future, you will be able to get help with running and configuring ``xami`.\r\nRight now, we're still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
       }
     ]
   },
   {
-    "file": "dev\\annotations\\@customtag",
-    "title": "@CustomTag",
+    "file": "dev\\annotations\\@authenticated",
+    "title": "@Authenticated",
     "content": [
       {
         "type": "heading",
         "depth": 1,
-        "value": "@CustomTag"
+        "value": "@Authenticated"
       },
       {
         "type": "paragraph",
-        "value": "Welcome to the official documentation for the @CustomTag annotation. This annotation allows developers to attach custom metadata to methods, classes, and properties. Below you'll find instructions on how to use it, along with relevant code examples and links to other documentation."
+        "value": "The @Authenticated annotation can be used on API endpoints to ensure that the caller is authenticated (logged in)."
       },
       {
         "type": "heading",
@@ -300,7 +34,16 @@
       },
       {
         "type": "paragraph",
-        "value": "The @CustomTag annotation is a simple but powerful tool that allows you to mark elements in your code for custom processing. It can be used with methods, classes, and properties to associate additional metadata. This metadata can then be processed at runtime using reflection or a custom processing tool."
+        "value": "If an unauthenticated user tries to access a method annotated with @Authenticated, the corresponding aspect will throw an exception which will be handled automatically to respond with HTTP status code 403 (Forbidden)."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "User object injection"
+      },
+      {
+        "type": "paragraph",
+        "value": "If the user that is calling the endpoint is authenticated, the aspect will inject the corresponding User entity into the  paramter of type User."
       },
       {
         "type": "heading",
@@ -314,69 +57,20 @@
       },
       {
         "type": "paragraph",
-        "value": "The @CustomTag annotation can be used to annotate methods. This can be particularly useful for marking methods that need special handling, such as logging or validation."
-      },
-      {
-        "type": "heading",
-        "depth": 3,
-        "value": "Class Annotation"
-      },
-      {
-        "type": "paragraph",
-        "value": "You can annotate entire classes with @CustomTag to apply metadata at a broader scope."
-      },
-      {
-        "type": "heading",
-        "depth": 3,
-        "value": "Property Annotation"
-      },
-      {
-        "type": "paragraph",
-        "value": "It can also be applied to fields (properties) for use cases like configuration or serialization customization."
+        "value": "The @Authenticated annotation can be used on method level like this:"
       },
       {
         "type": "heading",
         "depth": 2,
-        "value": "Runtime Processing"
+        "value": "See also"
       },
       {
         "type": "paragraph",
-        "value": "At runtime, you can retrieve and act upon @CustomTag annotations using Java reflection. Here's a simple example:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Use Cases"
+        "value": "Some people do not like to use \"magic\" in their code, which is absolutely understandable. The aspect which wraps around the method can be found "
       },
       {
         "type": "paragraph",
-        "value": ": Mark methods to be wrapped in automatic logging behavior."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Indicate which methods or properties need additional validation."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Use tags to customize JSON/XML serialization behavior."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Dynamically load and handle elements based on tags."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Annotation Definition"
-      },
-      {
-        "type": "paragraph",
-        "value": "Here is how the annotation itself is defined:"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Related Documentation"
+        "value": "If you are curious about annotations in general:"
       },
       {
         "type": "paragraph",
@@ -397,7 +91,7 @@
       },
       {
         "type": "paragraph",
-        "value": "The @CustomTag annotation is a flexible way to embed metadata into your Java code for use with various runtime tools and systems. Whether you're building a lightweight framework or extending an existing system, @CustomTag provides a clean and standardized method to tag and organize your logic."
+        "value": "The @Authenticated annotation is a simple way to require authentication from a user when calling a method, saving you some LOC since you do not have to retrieve Optionals or throw any errors."
       }
     ]
   },
@@ -507,6 +201,10 @@
         "type": "heading",
         "depth": 1,
         "value": "Developer Documentation"
+      },
+      {
+        "type": "paragraph",
+        "value": "Here you will be able to find documentation for the source code which should help you when contributing to xami.\r\nThis section (and page) will grow as we keep developing, so if you're missing anything, feel free to add it here."
       }
     ]
   },
@@ -752,375 +450,10 @@
         "type": "heading",
         "depth": 1,
         "value": "User Documentation"
-      }
-    ]
-  },
-  {
-    "file": "user\\watch-content",
-    "title": "Watching Content",
-    "content": [
-      {
-        "type": "heading",
-        "depth": 1,
-        "value": "Watching Content"
-      },
-      {
-        "type": "paragraph",
-        "value": "Logic on how to watch content differs based on the type of content you are trying to consume.\r\nFor example, video files are handled differently than audio files."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Video"
-      },
-      {
-        "type": "paragraph",
-        "value": "Watching video is pretty straightforward. The media player supports a wide range of video formats, including but not limited to .mp4, .mkv, .avi, .mov, and .webm. To begin playback:"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Use the left sidebar to access the \"Videos\" section."
-      },
-      {
-        "type": "paragraph",
-        "value": "Videos are automatically sorted by date added, but you can also sort by title, duration, or resolution."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Click on the thumbnail or title to open the video player."
-      },
-      {
-        "type": "paragraph",
-        "value": "You’ll be presented with metadata like duration, resolution, codec info, and subtitle availability."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Use the bottom control panel to:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Play/Pause"
-      },
-      {
-        "type": "paragraph",
-        "value": "Seek (rewind/fast forward)"
-      },
-      {
-        "type": "paragraph",
-        "value": "Adjust volume"
-      },
-      {
-        "type": "paragraph",
-        "value": "Toggle full-screen mode"
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable picture-in-picture"
-      },
-      {
-        "type": "paragraph",
-        "value": "Open subtitle/captions menu"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "You can load external subtitle files (.srt, .vtt, etc.) or choose from available embedded options."
-      },
-      {
-        "type": "paragraph",
-        "value": "Adjust font size, position, and color in Settings > Subtitle Preferences."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": ": Ideal for reviewing action scenes or analyzing footage."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Range from 0.25x to 2.0x."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Loop entire video or custom sections."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Supports direct playback from URLs and DLNA servers."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Cast to supported devices via Chromecast or AirPlay."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Audio"
-      },
-      {
-        "type": "paragraph",
-        "value": "Audio playback follows a similar structure but emphasizes playlists, visualizers, and metadata."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Go to the \"Music\" tab to view audio files organized by album, artist, or genre."
-      },
-      {
-        "type": "paragraph",
-        "value": "Audio files supported include .mp3, .flac, .ogg, .wav, and .aac."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Users can create custom playlists."
-      },
-      {
-        "type": "paragraph",
-        "value": "Drag and drop to reorder songs."
-      },
-      {
-        "type": "paragraph",
-        "value": "Shuffle and repeat modes available."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "A minimalistic player bar remains accessible at the bottom at all times."
-      },
-      {
-        "type": "paragraph",
-        "value": "Expand the player to view album art, track metadata, and visualizations."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "10-band graphic equalizer with presets like \"Rock\", \"Jazz\", \"Classical\"."
-      },
-      {
-        "type": "paragraph",
-        "value": "Additional audio effects include reverb, bass boost, and spatial audio."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "When minimized, audio continues to play."
-      },
-      {
-        "type": "paragraph",
-        "value": "Integration with media keys and notification controls."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Streaming"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "HTTP/HTTPS"
-      },
-      {
-        "type": "paragraph",
-        "value": "RTMP"
-      },
-      {
-        "type": "paragraph",
-        "value": "HLS (m3u8 playlists)"
-      },
-      {
-        "type": "paragraph",
-        "value": "DASH"
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Open the \"Streams\" tab and click \"Add Stream\"."
-      },
-      {
-        "type": "paragraph",
-        "value": "Paste the URL and press \"Play\"."
-      },
-      {
-        "type": "paragraph",
-        "value": ""
-      },
-      {
-        "type": "paragraph",
-        "value": "Automatically adjusts resolution based on network bandwidth."
-      },
-      {
-        "type": "paragraph",
-        "value": "Option to lock preferred resolution."
-      },
-      {
-        "type": "paragraph",
-        "value": " (Experimental)"
-      },
-      {
-        "type": "paragraph",
-        "value": "For live streams, enable chat overlay to display live messages in a sidebar."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Controls Overview"
-      },
-      {
-        "type": "paragraph",
-        "value": "| Control          | Shortcut | Description                          |\r\n|------------------|----------|--------------------------------------|\r\n| Play/Pause       | Space    | Toggles playback                     |\r\n| Volume Up/Down   | Up/Down  | Adjusts volume                       |\r\n| Seek Forward     | Right    | Skips forward 10 seconds             |\r\n| Seek Backward    | Left     | Skips back 10 seconds                |\r\n| Full Screen      | F        | Toggles fullscreen mode              |\r\n| Mute             | M        | Mutes/unmutes audio                  |\r\n| Subtitles        | S        | Opens subtitle settings              |\r\n| Speed Increase   | .        | Increases playback speed             |\r\n| Speed Decrease   | ,        | Decreases playback speed             |\r\n| Toggle Loop      | L        | Loops current media or section       |"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Settings"
-      },
-      {
-        "type": "paragraph",
-        "value": "Settings can be accessed via the gear icon in the top right corner of the media player."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Default speed, loop mode, start from last position"
-      },
-      {
-        "type": "paragraph",
-        "value": ": Hardware acceleration, aspect ratio lock, deinterlacing"
-      },
-      {
-        "type": "paragraph",
-        "value": ": Default output device, normalize volume, crossfade duration"
-      },
-      {
-        "type": "paragraph",
-        "value": ": Default language, appearance, sync offset"
-      },
-      {
-        "type": "paragraph",
-        "value": ": Proxy settings, cache size, buffer management"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Troubleshooting"
-      },
-      {
-        "type": "paragraph",
-        "value": ": Check system volume, output device, and mute toggle."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Disable hardware acceleration or lower playback resolution."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Ensure the necessary codecs are installed."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Confirm subtitle file is loaded and not out of sync."
-      },
-      {
-        "type": "paragraph",
-        "value": ": Increase buffer size or reduce resolution."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Keyboard Accessibility"
-      },
-      {
-        "type": "paragraph",
-        "value": "All features of the player are fully keyboard-accessible. Tab through buttons, use arrow keys for sliders, and shortcuts for rapid control."
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Mobile Support"
-      },
-      {
-        "type": "paragraph",
-        "value": "The player UI adapts to mobile and tablet screens:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Tap controls instead of hover"
-      },
-      {
-        "type": "paragraph",
-        "value": "Swipe gestures for seek and volume"
-      },
-      {
-        "type": "paragraph",
-        "value": "Persistent mini-player for multitasking"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Developer Tools"
-      },
-      {
-        "type": "paragraph",
-        "value": "For power users and developers:"
-      },
-      {
-        "type": "paragraph",
-        "value": "Enable developer overlay for inspecting media playback details"
-      },
-      {
-        "type": "paragraph",
-        "value": "Real-time logs (codec info, buffer state, dropped frames)"
-      },
-      {
-        "type": "paragraph",
-        "value": "JSON-based export of session metadata for diagnostics"
-      },
-      {
-        "type": "heading",
-        "depth": 2,
-        "value": "Conclusion"
       },
       {
         "type": "paragraph",
-        "value": "The media player is built to provide a rich, flexible, and customizable experience across all types of content. Whether you're binge-watching a series, reviewing raw footage, or vibing to music, the system adapts to your needs with powerful tools and intuitive design."
+        "value": "In the future, you will be able to find guides on how to do certain things with the interface.\r\nRight now, xami is still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
       }
     ]
   }

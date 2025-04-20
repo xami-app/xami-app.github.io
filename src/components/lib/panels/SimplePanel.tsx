@@ -44,7 +44,12 @@ const Panel: React.FC<PanelProps> = ({
                 </div>
             </div>
 
-            {!collapsed && <div className="mt-3">{children}</div>}
+            {/* Apply overflow control without hardcoding max-height */}
+            <div
+                className={`mt-3 ${collapsed ? "hidden" : ""} flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-400`}
+            >
+                {children}
+            </div>
         </Card>
     );
 };

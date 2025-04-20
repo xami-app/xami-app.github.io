@@ -11,7 +11,7 @@ interface DocSidebarProps {
 const DocSidebar: React.FC<DocSidebarProps> = ({ headings, className = '', mode }) => {
   return (
     <div className={`flex flex-col ${className}`}>
-      <TableOfContent headings={headings} className={`${mode == "MOBILE" ? "mt-10": "mt-6"}`} />
+      <TableOfContent headings={headings} className={`${mode == "MOBILE" ? "mt-10": ""}`} />
     </div>
   );
 };

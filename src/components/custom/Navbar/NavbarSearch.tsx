@@ -96,13 +96,13 @@ export const NavbarSearch: React.FC<NavbarSearchProps> = ({ className = "" }) =>
       />
 
       {search && topResults.length > 0 && showResults && (
-        <div className="absolute top-full mt-1 w-full z-50 bg-zinc-900 border border-zinc-700 shadow-lg rounded-md max-h-[300px] overflow-auto">
+        <div className="absolute top-full mt-1 w-full bg-zinc-900 border border-zinc-700 shadow-lg rounded-md max-h-[300px] overflow-auto">
           <ul>
             {topResults.map((res, idx) => (
               <li key={idx}>
                 <a
-                  onClick={() => navigate(`/docs/${res.file.replace("\\", "/")}`)}
-                  href={`#/docs/${res.file.replace("\\", "/")}`}
+                  onClick={() => navigate(`/docs/${res.file.replace(/\\/g, "/")}`)}
+                  href={`#/docs/${res.file.replace(/\\/g, "/")}`}
                   className="block px-4 py-2 hover:bg-zinc-800 text-sm text-zinc-100"
                 >
                   <div className="font-medium">{res.title}</div>

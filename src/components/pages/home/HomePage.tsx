@@ -35,7 +35,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="bg-zinc-900 text-white min-h-full flex flex-col items-center justify-center gap-4 relative overflow-hidden">
+    <div className="bg-zinc-900 text-white min-h-full flex flex-col items-center justify-center gap-4 relative overflow-visible">
       {/* Bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-[80%] pointer-events-none z-0 transition-all">
         <div
