@@ -4,10 +4,7 @@ const userDocConfig: ConfigDefinition = {
     basePath: "/docs/user/",
     title: "User",
     entries: [
-        {
-            title: "Watching content",
-            path: "watch-content",
-        }
+    
     ]
 };
 
