@@ -10,7 +10,7 @@
       },
       {
         "type": "paragraph",
-        "value": "In the future, you will be able to get help with running and configuring ``xami`.\r\nRight now, we're still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
+        "value": "In the future, you will be able to get help with running and configuring xami.\r\nRight now, we're still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
       }
     ]
   },
@@ -216,6 +216,10 @@
         "type": "heading",
         "depth": 1,
         "value": "Getting Started"
+      },
+      {
+        "type": "paragraph",
+        "value": "ATTENTION: This page is currently lorem ipsum: "
       },
       {
         "type": "paragraph",

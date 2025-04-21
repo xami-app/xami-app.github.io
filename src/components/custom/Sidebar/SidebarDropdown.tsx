@@ -8,7 +8,6 @@ interface SidebarDropdownProps {
     depth: number;
     path?: string;
     children: React.ReactNode;
-    expanded: boolean;
 }
 
 export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
@@ -16,7 +15,6 @@ export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
     depth,
     path,
     children,
-    expanded,
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -30,7 +28,7 @@ export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
         if (!isOpen) {
             setIsOpen(isActive || childIsActive);
         }
-    }, [isActive, childIsActive]);    
+    }, [isActive, childIsActive]);
 
     const handleToggle = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -78,18 +76,17 @@ export const SidebarDropdown: React.FC<SidebarDropdownProps> = ({
                         flex-grow flex items-center overflow-hidden mr-1 transition-all duration-150 ease-in-out
                     `}
                 >
-                    {expanded && (
-                        <span
-                            className={`
+
+                    <span
+                        className={`
                                 text-sm truncate
                                 ${isActive && navigable ? 'text-white' : 'text-gray-300 group-hover:text-white'}
                                 ${navigable ? ' underline-offset-2 cursor-pointer' : ''}
                             `}
-                            onClick={navigable && path ? (e) => { e.stopPropagation(); navigate(path); } : undefined}
-                        >
-                            {title}
-                        </span>
-                    )}
+                        onClick={navigable && path ? (e) => { e.stopPropagation(); navigate(path); } : undefined}
+                    >
+                        {title}
+                    </span>
                 </div>
 
                 {/* Arrow Button */}

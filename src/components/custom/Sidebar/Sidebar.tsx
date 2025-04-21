@@ -1,6 +1,7 @@
 // src/components/Sidebar/Sidebar.tsx
 import React, { useEffect, useState } from "react";
-import { BsChevronBarLeft, BsChevronBarRight } from "react-icons/bs";
+import { BsChevronBarRight } from "react-icons/bs";
+import { MdOutlineMenuOpen } from "react-icons/md";
 import { useNavigate } from "react-router";
 import logo from "../../../assets/sidebar-icon.png";
 import adminDocConfig from "../../../config/Admin.docs.config";
@@ -8,6 +9,7 @@ import devDocConfig from "../../../config/Developer.docs.config";
 import userDocConfig from "../../../config/User.docs.config";
 import { getStorageValue, setStorageValue } from "../../../storage/StorageProvider";
 import { ConfigEntry } from "../../../types/Config.types";
+import { SidebarDivider } from "./SidebarDivider";
 import { SidebarDropdown } from "./SidebarDropdown";
 import { SidebarItem } from "./SidebarItem";
 
@@ -43,7 +45,6 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                     title={entry.title}
                     depth={depth}
                     path={entry.path && currentPath}
-                    expanded={isSidebarExpanded}
                 >
                     {entry.children?.map((child) =>
                         renderEntry(basePath, child, depth + 1)
@@ -58,7 +59,6 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                     key={entry.title + depth}
                     title={entry.title}
                     path={currentPath}
-                    expanded={isSidebarExpanded}
                     depth={depth}
                 />
             );
@@ -95,58 +95,52 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
                     data-testid={"lock-sidebar"}
                     aria-label={isLocked ? "Unlock Sidebar" : "Lock Sidebar"}
                 >
-                    {isLocked ? <BsChevronBarLeft size={16} /> : <BsChevronBarRight size={16} />}
+                   <BsChevronBarRight size={16} className={`transition-transform ${isLocked ? "rotate-180" : ""}`} />
                 </button>
             </div>
 
-            {/* Navigation */}
-            <nav className="flex-grow mt-2 px-3 overflow-y-auto overflow-x-hidden pb-12">
-                <ul className="space-y-0.5">
-                    <SidebarItem
-                        title={"Home"}
-                        path={"/"}
-                        expanded={isSidebarExpanded}
-                    />
-                    <SidebarItem
-                        title={"Getting started"}
-                        path={"/docs/getting-started"}
-                        expanded={isSidebarExpanded}
-                    />  
-                    <SidebarDropdown
-                        key={"User"}
-                        title={"User"}
-                        depth={0}
-                        path={"/docs/user/getting-started"}
-                        expanded={isSidebarExpanded}
-                    >
-                        {userDocConfig.entries.map((entry) =>
-                            renderEntry(userDocConfig.basePath, entry, 1)
-                        )}
-                    </SidebarDropdown>
-                    <SidebarDropdown
-                        key={"Admin"}
-                        title={"Admin"}
-                        depth={0}
-                        path={"/docs/admin/getting-started"}
-                        expanded={isSidebarExpanded}
-                    >
-                        {adminDocConfig.entries.map((entry) =>
-                            renderEntry(adminDocConfig.basePath, entry, 1)
-                        )}
-                    </SidebarDropdown>
-                    <SidebarDropdown
-                        key={"Developer"}
-                        title={"Developer"}
-                        depth={0}
-                        path={"/docs/dev/getting-started"}
-                        expanded={isSidebarExpanded}
-                    >
-                        {devDocConfig.entries.map((entry) =>
-                            renderEntry(devDocConfig.basePath, entry, 1)
-                        )}
-                    </SidebarDropdown>
-                </ul>
-            </nav>
+            {isSidebarExpanded ? (
+                <nav className="flex-grow mt-2 px-3 overflow-y-auto overflow-x-hidden pb-12">
+                    <ul className="space-y-0.5">
+                        <SidebarItem
+                            title={"Home"}
+                            path={"/"}
+                        />
+                        <SidebarItem
+                            title={"Roadmap"}
+                            path={"https://trello.com/b/54vZvM0g/roadmap"}
+                            external
+                        />
+
+                        <SidebarDivider expanded={isSidebarExpanded} text={"Docs"} />
+
+                        <SidebarItem
+                            title={"Getting started"}
+                            path={"/docs/getting-started"}
+                        />
+                        {[userDocConfig, adminDocConfig, devDocConfig].map((docConfig) => {
+                            return (
+                                <SidebarDropdown
+                                    key={docConfig.title}
+                                    title={docConfig.title}
+                                    depth={0}
+                                    path={docConfig.basePath + "getting-started"}
+                                >
+                                    {docConfig.entries.map((entry) =>
+                                        renderEntry(docConfig.basePath, entry, 1)
+                                    )}
+                                </SidebarDropdown>
+                            )
+                        })}
+                    </ul>
+                </nav>
+            ) : (
+                <div className="flex-grow max-h-full h-full overflow-hidden text-gray-400 flex items-center justify-center mb-4">
+                    <div className="relative w-full h-full flex items-center justify-center border border-dashed border-gray-500 rounded-lg mx-2">
+                        <MdOutlineMenuOpen className="text-gray-400" size={24} />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

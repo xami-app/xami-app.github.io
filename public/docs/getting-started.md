@@ -1,4 +1,7 @@
 # Getting Started
+
+> ATTENTION: This page is currently lorem ipsum: **Nothing written here is true nor does it make any sense**
+
 Welcome to the documentation site! Below you will find instructions on how to get started with the software. The guide is divided into three main sections: User, Admin, and Developer. Select the section that best fits your role.
 
 ## USER

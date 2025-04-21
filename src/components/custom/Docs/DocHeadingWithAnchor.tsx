@@ -1,9 +1,14 @@
 import React from "react";
 import { ComponentPropsWithoutRef } from "react";
+import { useLocation } from "react-router";
 
 interface DocHeadingWithAnchorProps extends ComponentPropsWithoutRef<"h1"> {
   level: 1 | 2 | 3;
-  node?: any;
+  node?: {
+    properties?: {
+      id?: string;
+    };
+  };
 }
 
 export const DocHeadingWithAnchor: React.FC<DocHeadingWithAnchorProps> = ({
@@ -12,12 +17,13 @@ export const DocHeadingWithAnchor: React.FC<DocHeadingWithAnchorProps> = ({
   children,
   ...rest
 }) => {
+  const location = useLocation();
+  const basePath = `${window.location.origin}#${location.pathname}`;
+  
   let id = node?.properties?.id;
-  if (!id && children) {
-    id = children
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, '-')
+
+  if (!id && typeof children === "string") {
+    id = children.toLowerCase().replace(/\s+/g, "-");
   }
 
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
@@ -33,12 +39,11 @@ export const DocHeadingWithAnchor: React.FC<DocHeadingWithAnchorProps> = ({
       <span>{children}</span>
       {id && (
         <a
-          href={`${window.location.href}?section=${id}`}
+          href={`${basePath}?section=${id}`}
           className="ml-2 text-blue-400 opacity-0 group-hover:opacity-100 text-sm"
           onClick={(e) => {
             e.preventDefault();
-            const fullUrl = `${window.location.href}?section=${id}`;
-            navigator.clipboard.writeText(fullUrl);
+            navigator.clipboard.writeText(`${basePath}?section=${id}`);
           }}
           title="Copy link"
         >
@@ -48,4 +53,3 @@ export const DocHeadingWithAnchor: React.FC<DocHeadingWithAnchorProps> = ({
     </>
   );
 };
-
