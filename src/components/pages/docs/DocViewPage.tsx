@@ -64,7 +64,7 @@ const DocViewPage: React.FC = () => {
     <div className="flex w-full relative">
       {/* Mobile ToC Toggle */}
       <button
-        className={`lg:hidden fixed top-4 right-4 z-50 bg-zinc-800 text-white p-2 rounded shadow-md transition-transform rotate-180 duration-300`}
+        className={`lg:hidden fixed top-4 right-4 z-35 bg-zinc-800 text-white p-2 rounded shadow-md transition-transform rotate-180 duration-300`}
         onClick={(e) => {
           e.stopPropagation();
           setShowToC(prev => !prev);
