@@ -58,6 +58,7 @@
 /* Paragraphs */
 .markdown-body p {
   font-size: 1.125rem;
+  font-weight: 300;
   margin-bottom: 1.25rem;
   line-height: 1.6;
 }

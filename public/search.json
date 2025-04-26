@@ -15,6 +15,371 @@
     ]
   },
   {
+    "file": "admin\\languages\\adding-custom-languages",
+    "title": "Adding Custom Languages",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Adding Custom Languages"
+      },
+      {
+        "type": "paragraph",
+        "value": "This guide explains how to add completely new languages to the application."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Overview"
+      },
+      {
+        "type": "paragraph",
+        "value": "In addition to modifying existing languages, you can introduce entirely new languages that are not included by default."
+      },
+      {
+        "type": "paragraph",
+        "value": "All available translation keys can be found here:\r\n"
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Steps to Add a New Language"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "This folder is automatically created when the application starts."
+      },
+      {
+        "type": "paragraph",
+        "value": "Path: config/language"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Create a new file following the naming convention:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Make sure to use only available language codes or otherwise you will overwrite actual languages."
+      },
+      {
+        "type": "paragraph",
+        "value": "Example for Pirate Language:"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Copy all translation keys from the ."
+      },
+      {
+        "type": "paragraph",
+        "value": "Provide your own translations for each key."
+      },
+      {
+        "type": "paragraph",
+        "value": "Example:"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Save your new file."
+      },
+      {
+        "type": "paragraph",
+        "value": "It is recommended to restart the application to load the new language."
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "The system will recognize both predefined and custom languages automatically."
+      },
+      {
+        "type": "paragraph",
+        "value": "Enjoy your newly created language!"
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Important Notes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Make sure to define all important keys to avoid missing text. If you miss a translation, it's key will be used as language."
+      },
+      {
+        "type": "paragraph",
+        "value": "Properties files must be UTF-8 encoded without BOM."
+      },
+      {
+        "type": "paragraph",
+        "value": "Avoid using  language codes (e.g., es for Spanish, fr for French) unless you want to create a translation file for an  language. In this case, we do encourage to contribute to the officail repository."
+      },
+      {
+        "type": "paragraph",
+        "value": "With this system, you can easily expand the application's language support for new regions, communities, or custom requirements."
+      }
+    ]
+  },
+  {
+    "file": "admin\\languages\\editing-languages",
+    "title": "Editing Languages",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Editing Languages"
+      },
+      {
+        "type": "paragraph",
+        "value": "This guide explains how to customize existing translations in the application."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Overview"
+      },
+      {
+        "type": "paragraph",
+        "value": "All user-facing text is controlled through translation keys. These keys are defined once and can be customized without modifying the core application files."
+      },
+      {
+        "type": "paragraph",
+        "value": "You can view all available translation keys  values here:\r\n"
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Steps to Edit Language Strings"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "This folder is automatically created when the application starts."
+      },
+      {
+        "type": "paragraph",
+        "value": "Path: config/language"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "If you want to modify an existing language (e.g., English), create a file named:"
+      },
+      {
+        "type": "paragraph",
+        "value": "If the file already exists, simply edit it."
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Copy any key you want to change from the ."
+      },
+      {
+        "type": "paragraph",
+        "value": "Add the key and your new translation in the messages_custom_[lang].properties file."
+      },
+      {
+        "type": "paragraph",
+        "value": "Example:"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Save the file and even though not necessary, it is recommended to restart the application if it is already running."
+      },
+      {
+        "type": "paragraph",
+        "value": "Changes will be picked up dynamically, but are ensured to take effect on startup."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Important Notes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Only keys you define are overridden. Everything else continues using the default predefined translations."
+      },
+      {
+        "type": "paragraph",
+        "value": "Make sure you use the correct language code (e.g., en, de, fr)."
+      },
+      {
+        "type": "paragraph",
+        "value": "Properties files must be encoded in UTF-8 without BOM."
+      },
+      {
+        "type": "paragraph",
+        "value": "By using this system, you can easily adjust the wording to better fit your needs without interfering with the application's update process."
+      }
+    ]
+  },
+  {
+    "file": "admin\\languages",
+    "title": "Languages",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Languages"
+      },
+      {
+        "type": "paragraph",
+        "value": "xami includes a robust and flexible internationalization (i18n) system designed to support multiple languages and easy customization by administrators."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Predefined Language Sets"
+      },
+      {
+        "type": "paragraph",
+        "value": "The application comes with an internal set of . These files include all translation keys required for the frontend user interface and cover commonly used languages such as English, German, and more."
+      },
+      {
+        "type": "paragraph",
+        "value": "Predefined sets are maintained and updated with each application release. This ensures that users always have access to the latest translations without needing manual updates."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Custom Language Overrides"
+      },
+      {
+        "type": "paragraph",
+        "value": "To allow customization without modifying the predefined files, a config/language directory is automatically created when the application starts."
+      },
+      {
+        "type": "paragraph",
+        "value": "In this directory, administrators can:"
+      },
+      {
+        "type": "paragraph",
+        "value": " by creating partial language files."
+      },
+      {
+        "type": "paragraph",
+        "value": " that are not included in the predefined set."
+      },
+      {
+        "type": "paragraph",
+        "value": "User-defined language files must follow the naming convention messages_custom_[languageCode].properties (e.g., messages_custom_en.properties)."
+      },
+      {
+        "type": "paragraph",
+        "value": "To see further details, visit the sub-pages of this documentation page."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Language Command"
+      },
+      {
+        "type": "paragraph",
+        "value": "To view available languages, you can use the console. The corresponding command is called"
+      },
+      {
+        "type": "paragraph",
+        "value": "and is located under API Commands. You can see all found languages and their origin (see below)."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Loading Priority"
+      },
+      {
+        "type": "paragraph",
+        "value": "When loading translations, the application uses the following priority:"
+      },
+      {
+        "type": "paragraph",
+        "value": " (from config/language)"
+      },
+      {
+        "type": "paragraph",
+        "value": " (managed internally)"
+      },
+      {
+        "type": "paragraph",
+        "value": "If a translation key exists in both locations, the user-defined version will take precedence. This ensures full flexibility while maintaining fallback support for missing keys."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Language Origin Marking"
+      },
+      {
+        "type": "paragraph",
+        "value": "Each available language is automatically categorized based on its source:"
+      },
+      {
+        "type": "paragraph",
+        "value": ": Only a predefined version exists."
+      },
+      {
+        "type": "paragraph",
+        "value": ": Only a user-defined version exists."
+      },
+      {
+        "type": "paragraph",
+        "value": ": Both a predefined and a user-defined version exist."
+      },
+      {
+        "type": "paragraph",
+        "value": "This marking helps to better organize and understand the state of each language during administration and debugging."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Benefits of This Approach"
+      },
+      {
+        "type": "paragraph",
+        "value": ": Admins can adjust only the strings they need."
+      },
+      {
+        "type": "paragraph",
+        "value": ": Predefined languages continue to receive updates automatically."
+      },
+      {
+        "type": "paragraph",
+        "value": ": No need to merge changes manually when new versions are released."
+      },
+      {
+        "type": "paragraph",
+        "value": ": Full support for custom languages beyond the defaults."
+      }
+    ]
+  },
+  {
     "file": "dev\\annotations\\@authenticated",
     "title": "@Authenticated",
     "content": [
