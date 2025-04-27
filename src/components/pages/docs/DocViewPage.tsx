@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { useLocation } from 'react-router';
 import { ClipLoader } from "react-spinners";
 
-import 'prismjs/themes/prism-tomorrow.css';
+import './prism-setup';
 import './DocViewPage.styles.css';
 
 import { useHeadings } from '../../../hooks/Headings.hooks';

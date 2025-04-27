@@ -1,7 +1,7 @@
 {
   "name": "xami-docs",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "./",
   "type": "module",
   "scripts": {
@@ -24,6 +24,7 @@
     "react-router": "^7.4.0",
     "react-select": "^5.10.1",
     "react-spinners": "^0.15.0",
+    "react-toastify": "^11.0.5",
     "react-tooltip": "^5.28.0",
     "rehype-prism": "^2.3.3",
     "remark": "^15.0.1",

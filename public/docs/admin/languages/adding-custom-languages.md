@@ -23,7 +23,7 @@ messages_custom_[languageCode].properties
 - Make sure to use only available language codes or otherwise you will overwrite actual languages.
 
 Example for Pirate Language:
-```
+```file
 messages_custom_pirate.properties
 ```
 

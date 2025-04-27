@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import rehypePrism from "rehype-prism";
 import remarkGfm from "remark-gfm";
 import { DocHeadingWithAnchor } from "./DocHeadingWithAnchor";
+import { CodeBlock } from "./CodeBlock";
 
 interface DocMarkdownViewProps {
   className?: string;
@@ -28,6 +29,7 @@ export const DocMarkdownView: React.FC<DocMarkdownViewProps> = ({
           h3({ node, ...props }) {
             return <DocHeadingWithAnchor level={3} node={node} {...props} />;
           },
+          code: CodeBlock
         }}
       >
         {markdown}

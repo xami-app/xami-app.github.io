@@ -1,9 +1,8 @@
-/* Markdown Body Styles */
+/* Markdown Body */
 .markdown-body {
   font-family: "Inter", sans-serif;
-  /* Set the font family for the markdown content */
-  line-height: 1.6;
   color: #f5f5f5;
+  line-height: 1.6;
   max-width: 100%;
   overflow-wrap: break-word;
 }
@@ -15,52 +14,34 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  color: #f8f8f8;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
+  font-weight: bold;
   line-height: 1.25;
 }
 
 .markdown-body h1 {
   font-size: 2.5rem;
-  font-weight: bold;
   border-bottom: 2px solid #4b6cb7;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .markdown-body h2 {
   font-size: 2rem;
-  font-weight: bold;
   border-bottom: 1px solid #4b6cb7;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
-.markdown-body h3 {
-  font-size: 1.75rem;
-  font-weight: bold;
-}
-
-.markdown-body h4 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.markdown-body h5 {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.markdown-body h6 {
-  font-size: 1rem;
-  font-weight: bold;
-}
+.markdown-body h3 { font-size: 1.75rem; }
+.markdown-body h4 { font-size: 1.5rem; }
+.markdown-body h5 { font-size: 1.25rem; }
+.markdown-body h6 { font-size: 1rem; }
 
 /* Paragraphs */
 .markdown-body p {
   font-size: 1.125rem;
   font-weight: 300;
   margin-bottom: 1.25rem;
-  line-height: 1.6;
 }
 
 /* Lists */
@@ -72,101 +53,122 @@
 
 .markdown-body li {
   font-size: 1.125rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
+/* List Markers - Only for UL */
 .markdown-body ul li::before {
   content: "•";
   color: #f39c12;
-  /* Custom bullet color */
   margin-right: 0.5rem;
+  display: inline-block;
+}
+
+/* Reset OL markers */
+.markdown-body ol li::marker {
+  color: #f39c12;
+  font-weight: 100;
+  font-size: 1rem;
 }
 
 .markdown-body ol {
   list-style-type: decimal;
 }
 
-.markdown-body ol li {
-  list-style-type: decimal;
-}
-
 /* Blockquotes */
 .markdown-body blockquote {
-  margin: 1.25rem 0;
-  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
   border-left: 4px solid #4b6cb7;
   background-color: #2a2a2a;
-  font-style: italic;
   color: #dcdcdc;
+  font-style: italic;
+  display: flex;
+  align-items: center; /* vertically center the text */
 }
 
-.markdown-body blockquote p {
-  margin: 0;
+
+/* Inline Code */
+.markdown-body code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  padding: 0.15rem 0.35rem;
+  background-color: #333;
+  border-radius: 4px;
+  color: #ffffff;
+  word-break: break-word;
 }
 
 /* Code Blocks */
-.markdown-body code {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1rem;
-  padding: 0.2rem 0.4rem;
-  background-color: #333;
-  border-radius: 3px;
-}
-
 .markdown-body pre {
-  background-color: #333;
-  padding: 1rem;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow: auto;
-  border-radius: 5px;
+  background-color: #2a2a2a;
+  overflow-x: auto;
+  border-radius: 8px;
   margin: 1.5rem 0;
+  padding: 0;
 }
 
-.markdown-body pre code {
-  background-color: transparent;
-  padding: 0;
+.markdown-body pre > code {
+  display: block;
+  background: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  white-space: pre;
+  line-height: 1.5;
+}
+
+/* Custom Code Block Header */
+.markdown-body .code-header {
+  background-color: #1f1f1f;
+  color: #ccc;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Copy Button */
+.markdown-body .copy-button {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.markdown-body .copy-button:hover {
+  color: #f39c12;
 }
 
 /* Links */
 .markdown-body a {
   color: #4b6cb7;
-  text-decoration: none;
   border-bottom: 1px solid #4b6cb7;
+  text-decoration: none;
 }
 
 .markdown-body a:hover {
   color: #f39c12;
-  border-bottom: 1px solid #f39c12;
+  border-bottom-color: #f39c12;
 }
 
-/* Images */
-.markdown-body img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin: 1.25rem 0;
-}
-
-/* Horizontal Rule */
-.markdown-body hr {
-  border: none;
-  border-top: 1px solid #444;
-  margin: 1.5rem 0;
-}
-
-/* Table */
+/* Tables */
 .markdown-body table {
   width: 100%;
-  margin-bottom: 1.5rem;
   border-collapse: collapse;
+  margin-bottom: 1.5rem;
 }
 
 .markdown-body th,
 .markdown-body td {
-  padding: 0.75rem;
-  text-align: left;
   border: 1px solid #444;
+  padding: 0.75rem;
 }
 
 .markdown-body th {
@@ -178,14 +180,14 @@
   background-color: #2a2a2a;
 }
 
-/* Typography for Special Elements */
-.markdown-body .highlight {
-  background-color: #f39c12;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
+/* Horizontal Rule */
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 2rem 0;
 }
 
-.mark1wn-body .important {
-  font-weight: bold;
-  color: #f39c12;
+/* Utilities */
+.no-margin {
+  margin: 0 !important;
 }
