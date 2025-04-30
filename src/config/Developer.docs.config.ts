@@ -21,6 +21,15 @@ const devDocConfig: ConfigDefinition = {
                     path: "annotations/@authenticated"
                 }
             ]
+        }, 
+        {
+            title: "Themes",
+            children: [
+                {
+                    title: "Hot-Reloading Themes",
+                    path: "themes/changes-during-development"
+                }
+            ]
         }
     ]
 };

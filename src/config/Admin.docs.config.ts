@@ -17,6 +17,9 @@ const adminDocConfig: ConfigDefinition = {
                     path: "languages/adding-custom-languages"
                 }
             ]
+        }, {
+            title: "Themes",
+            path: "themes"
         }
     ]
 };

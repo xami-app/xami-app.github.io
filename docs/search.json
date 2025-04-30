@@ -380,6 +380,106 @@
     ]
   },
   {
+    "file": "admin\\themes",
+    "title": "Themes",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "As an administrator, you can add your own custom themes which the users can then use."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Creating a Theme"
+      },
+      {
+        "type": "paragraph",
+        "value": "To create a new theme, place a .json file in the following folder:"
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Theme JSON Structure"
+      },
+      {
+        "type": "paragraph",
+        "value": "identifier: must be unique."
+      },
+      {
+        "type": "paragraph",
+        "value": "name: user-friendly display name."
+      },
+      {
+        "type": "paragraph",
+        "value": "description: describes the theme’s purpose or style."
+      },
+      {
+        "type": "paragraph",
+        "value": "theme: key-value map defining styling options."
+      },
+      {
+        "type": "paragraph",
+        "value": "👉 For a list of supported keys in the theme object, refer to the "
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Reloading Custom Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "To load or update user-defined themes, use:"
+      },
+      {
+        "type": "paragraph",
+        "value": "This command reads all files from config/themes and integrates them into the running application without requiring a restart."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Overriding Predefined Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "If a user-defined theme in config/themes has the  as a predefined one, it will  the predefined version. This allows admins to customize built-in themes while maintaining the original source."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Listing Available Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Use the following command to display all recognized themes:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Each theme will be listed along with its source:"
+      },
+      {
+        "type": "paragraph",
+        "value": " – Only the built-in version is present."
+      },
+      {
+        "type": "paragraph",
+        "value": " – Only a user-defined version is found."
+      },
+      {
+        "type": "paragraph",
+        "value": " – Both predefined and user-defined versions exist, and the user one is currently active."
+      },
+      {
+        "type": "paragraph",
+        "value": "This provides clear visibility into what themes are in use and whether any customizations have been applied."
+      }
+    ]
+  },
+  {
     "file": "dev\\annotations\\@authenticated",
     "title": "@Authenticated",
     "content": [
@@ -570,6 +670,146 @@
       {
         "type": "paragraph",
         "value": "Here you will be able to find documentation for the source code which should help you when contributing to xami.\r\nThis section (and page) will grow as we keep developing, so if you're missing anything, feel free to add it here."
+      }
+    ]
+  },
+  {
+    "file": "dev\\themes\\changes-during-development",
+    "title": "Hot-Reloading Themes",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Hot-Reloading Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Theme JSON files are loaded differently depending on the active Spring profile. This setup optimizes for performance and flexibility."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Production Mode"
+      },
+      {
+        "type": "paragraph",
+        "value": "In production, themes are loaded from the  (typically from inside a JAR). This ensures:"
+      },
+      {
+        "type": "paragraph",
+        "value": "No changes to predefined themes at runtime."
+      },
+      {
+        "type": "paragraph",
+        "value": "Faster and more predictable behavior."
+      },
+      {
+        "type": "paragraph",
+        "value": "This means any changes to theme files require recompiling and redeploying the application."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Development Mode (dev profile)"
+      },
+      {
+        "type": "paragraph",
+        "value": "When running the app with the dev profile, the behavior changes to support rapid iteration:"
+      },
+      {
+        "type": "paragraph",
+        "value": "The application looks for predefined theme files in the local filesystem at:"
+      },
+      {
+        "type": "paragraph",
+        "value": "All .json files in this folder are loaded and used  the classpath."
+      },
+      {
+        "type": "paragraph",
+        "value": "This allows you to:"
+      },
+      {
+        "type": "paragraph",
+        "value": "Edit themes without restarting the app."
+      },
+      {
+        "type": "paragraph",
+        "value": "Quickly iterate on styling and color schemes."
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Enable Dev Mode"
+      },
+      {
+        "type": "paragraph",
+        "value": "You can enable development mode in two ways:"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "value": "Reloading Themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "While in development mode, use the following command to reload  themes (including predefined ones) without restarting the app:"
+      },
+      {
+        "type": "paragraph",
+        "value": "This reloads the themes directly from the filesystem. If you're not in dev mode, this command will  affect predefined themes, since they are read from the classpath (and therefore immutable at runtime)."
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "value": "Behind the Scenes: How It Works"
+      },
+      {
+        "type": "paragraph",
+        "value": "The method responsible for this logic is ThemeFileIndex#loadFromResources:"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Look in src/main/resources/themes"
+      },
+      {
+        "type": "paragraph",
+        "value": "Load all .json files found there"
+      },
+      {
+        "type": "paragraph",
+        "value": "Log which files were loaded"
+      },
+      {
+        "type": "paragraph",
+        "value": "Any errors during loading are logged but don't stop the process"
+      },
+      {
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "type": "paragraph",
+        "value": "Load all .json theme files from the classpath (e.g., from inside a JAR)"
+      },
+      {
+        "type": "paragraph",
+        "value": "Save them to temporary files so the system can work with file paths"
+      },
+      {
+        "type": "paragraph",
+        "value": "This dual-loading mechanism allows developers to iterate quickly while maintaining reliability and consistency in production."
       }
     ]
   },
