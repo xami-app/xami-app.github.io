@@ -1,20 +1,5 @@
 [
   {
-    "file": "admin\\getting-started",
-    "title": "Admin Documentation",
-    "content": [
-      {
-        "type": "heading",
-        "depth": 1,
-        "value": "Admin Documentation"
-      },
-      {
-        "type": "paragraph",
-        "value": "In the future, you will be able to get help with running and configuring xami.\r\nRight now, we're still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
-      }
-    ]
-  },
-  {
     "file": "admin\\languages\\adding-custom-languages",
     "title": "Adding Custom Languages",
     "content": [
@@ -480,6 +465,21 @@
     ]
   },
   {
+    "file": "admin",
+    "title": "Admin Documentation",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Admin Documentation"
+      },
+      {
+        "type": "paragraph",
+        "value": "In the future, you will be able to get help with running and configuring xami.\r\nRight now, we're still under heavy development, so explaining anything here would be kind of useless since  is subject to change."
+      }
+    ]
+  },
+  {
     "file": "dev\\annotations\\@authenticated",
     "title": "@Authenticated",
     "content": [
@@ -659,21 +659,6 @@
     ]
   },
   {
-    "file": "dev\\getting-started",
-    "title": "Developer Documentation",
-    "content": [
-      {
-        "type": "heading",
-        "depth": 1,
-        "value": "Developer Documentation"
-      },
-      {
-        "type": "paragraph",
-        "value": "Here you will be able to find documentation for the source code which should help you when contributing to xami.\r\nThis section (and page) will grow as we keep developing, so if you're missing anything, feel free to add it here."
-      }
-    ]
-  },
-  {
     "file": "dev\\themes\\changes-during-development",
     "title": "Hot-Reloading Themes",
     "content": [
@@ -810,6 +795,21 @@
       {
         "type": "paragraph",
         "value": "This dual-loading mechanism allows developers to iterate quickly while maintaining reliability and consistency in production."
+      }
+    ]
+  },
+  {
+    "file": "dev",
+    "title": "Developer Documentation",
+    "content": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "value": "Developer Documentation"
+      },
+      {
+        "type": "paragraph",
+        "value": "Here you will be able to find documentation for the source code which should help you when contributing to xami.\r\nThis section (and page) will grow as we keep developing, so if you're missing anything, feel free to add it here."
       }
     ]
   },
@@ -1052,7 +1052,7 @@
     ]
   },
   {
-    "file": "user\\getting-started",
+    "file": "user",
     "title": "User Documentation",
     "content": [
       {

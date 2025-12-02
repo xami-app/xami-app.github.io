@@ -3,9 +3,7 @@ import { BsChevronBarRight } from "react-icons/bs";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import { useNavigate } from "react-router";
 import logo from "../../../assets/sidebar-icon.png";
-import adminDocConfig from "../../../config/Admin.docs.config";
-import devDocConfig from "../../../config/Developer.docs.config";
-import userDocConfig from "../../../config/User.docs.config";
+import hierarchy from "../../../config/hierarchy.config";
 import { getStorageValue, setStorageValue } from "../../../storage/StorageProvider";
 import { ConfigEntry } from "../../../types/Config.types";
 import { SidebarDivider } from "./SidebarDivider";
@@ -34,8 +32,8 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
     handleSidebarLock(isLocked);
   }, [isLocked, handleSidebarLock, isMobile]);
 
-  const renderEntry = (basePath: string, entry: ConfigEntry, depth = 0): React.ReactNode => {
-    const currentPath = basePath + (entry.path || '');
+  const renderEntry = (entry: ConfigEntry, depth = 0): React.ReactNode => {
+    const currentPath = entry.path || '';
     const hasPath = !!entry.path;
     const hasChildren = entry.children && entry.children.length > 0;
 
@@ -47,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
           depth={depth}
           path={entry.path && currentPath}
         >
-          {entry.children?.map((child) => renderEntry(basePath, child, depth + 1))}
+          {entry.children?.map((child) => renderEntry(child, depth + 1))}
         </SidebarDropdown>
       );
     }
@@ -106,16 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ handleSidebarLock }) => {
             <SidebarItem title={"Roadmap"} path={"https://trello.com/b/54vZvM0g/roadmap"} external />
             <SidebarDivider expanded={isSidebarExpanded} text={"Docs"} />
             <SidebarItem title={"Getting started"} path={"/docs/getting-started"} />
-            {[userDocConfig, adminDocConfig, devDocConfig].map((docConfig) => (
-              <SidebarDropdown
-                key={docConfig.title}
-                title={docConfig.title}
-                depth={0}
-                path={docConfig.basePath + "getting-started"}
-              >
-                {docConfig.entries.map((entry) => renderEntry(docConfig.basePath, entry, 1))}
-              </SidebarDropdown>
-            ))}
+            {hierarchy.map((docConfig) => renderEntry(docConfig))}
           </ul>
         </nav>
       ) : (

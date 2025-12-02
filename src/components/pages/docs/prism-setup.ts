@@ -9,3 +9,4 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-properties';
+import 'prismjs/components/prism-yaml';

@@ -9,9 +9,9 @@ const HomePage = () => {
   const handleCardClick = (side: "left" | "middle" | "right") => setSelected(side);
 
   const handleGo = () => {
-    if (selected === "left") navigate("/docs/user/getting-started");
-    else if (selected === "right") navigate("/docs/admin/getting-started");
-    else if (selected === "middle") navigate("/docs/dev/getting-started");
+    if (selected === "left") navigate("/docs/user");
+    else if (selected === "right") navigate("/docs/admin");
+    else if (selected === "middle") navigate("/docs/dev");
   };
 
   const GRADIENT_CLASSES_MAP = {
